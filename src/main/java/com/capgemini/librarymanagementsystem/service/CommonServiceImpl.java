@@ -11,8 +11,10 @@ import com.capgemini.librarymanagementsystem.dto.Users;
 
 @Service
 public class CommonServiceImpl implements CommonService{
+	
 	@Autowired
 	private CommonDao commonDao;
+	
 	@Override
 	public Users login(String id, String password) {
 		return commonDao.login(id, password);

@@ -63,4 +63,4 @@ public class CommonDaoImpl implements CommonDao{
 		System.out.println(details2);
 		return details2;
 	}//end of findBooksByDepartmentName
-}
+}//end of class
