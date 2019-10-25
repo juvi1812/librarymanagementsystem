@@ -3,7 +3,10 @@
     xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="LibraryPersistence" transaction-type="RESOURCE_LOCAL">
-        <class></class>
+        <class>com.capgemini.librarymanagementsystem.dto.BookInventory</class>
+        <class>com.capgemini.librarymanagementsystem.dto.BookRegistration</class>
+        <class>com.capgemini.librarymanagementsystem.dto.BookTransaction</class>
+        <class>com.capgemini.librarymanagementsystem.dto.Users</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/librarymanagement" />

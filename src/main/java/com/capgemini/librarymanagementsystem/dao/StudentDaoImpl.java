@@ -13,7 +13,6 @@ public class StudentDaoImpl implements StudentDao {
 
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
-	EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 	//requestForBook
 	@Override

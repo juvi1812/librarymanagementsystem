@@ -15,15 +15,17 @@ import com.capgemini.librarymanagementsystem.dto.Users;
 
 @Repository
 public class AdminDaoImpl implements AdminDao {
+	
 
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
-	EntityManager entityManager = entityManagerFactory.createEntityManager();
-	EntityTransaction transaction=null;
+
 
 	//addLibrarian
 	@Override
 	public Users addLibrarian(Users users) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction transaction=null;
 		transaction= entityManager.getTransaction();
 		transaction.begin();
 		try {
@@ -38,6 +40,8 @@ public class AdminDaoImpl implements AdminDao {
 	//deleteLibrarian
 	@Override
 	public Users deleteLibrarian(String id) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction transaction=null;
 		transaction= entityManager.getTransaction();
 		try {
 			Users users=entityManager.find(Users.class, id);
@@ -53,6 +57,8 @@ public class AdminDaoImpl implements AdminDao {
 	//updateLibrarian
 	@Override
 	public Users updateLibrarian(Users users) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction transaction=null;
 		transaction=entityManager.getTransaction();
 		transaction.begin();
 		Users userUpdate=entityManager.find(Users.class, users.getId());
@@ -73,6 +79,8 @@ public class AdminDaoImpl implements AdminDao {
 	//displayLibrarian
 	@Override
 	public List<Users> displayLibrarian() {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction transaction=null;
 		String jpqa="from Users where userType LIKE '%librarian%'";
 		Query query=entityManager.createQuery(jpqa);
 		List<Users> allLibrarian=null;

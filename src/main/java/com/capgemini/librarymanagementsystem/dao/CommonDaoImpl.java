@@ -18,11 +18,10 @@ public class CommonDaoImpl implements CommonDao{
 	
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
-	EntityManager entityManager = entityManagerFactory.createEntityManager();
-	
 	//login
 	@Override
 	public Users login(String id, String password) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Users userDetails = entityManager.find(Users.class, id);
 		if (userDetails !=null) {
 			return userDetails;
@@ -34,6 +33,7 @@ public class CommonDaoImpl implements CommonDao{
 	//findBooksByName
 	@Override
 	public List<BookInventory> findBooksByName(String bookName) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		String details = "from BookInventory where bookName=:bookName";
 		Query query = entityManager.createQuery(details);
 		query.setParameter("bookName", bookName);
@@ -45,6 +45,7 @@ public class CommonDaoImpl implements CommonDao{
 	//findBooksByAuthor
 	@Override
 	public List<BookInventory> findBooksByAuthor(String author) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		String details = "from BookInventory where author=:author";
 		Query query = entityManager.createQuery(details);
 		query.setParameter("author", author);
@@ -56,6 +57,7 @@ public class CommonDaoImpl implements CommonDao{
 	//findBooksByDepartmentName
 	@Override
 	public List<BookInventory> findBooksByDepartmentName(String departmentName) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		String details = "from BookInventory where departmentName=:departmentName";
 		Query query = entityManager.createQuery(details);
 		query.setParameter("departmentName", departmentName);

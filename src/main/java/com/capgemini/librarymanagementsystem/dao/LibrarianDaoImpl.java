@@ -18,12 +18,12 @@ public class LibrarianDaoImpl implements LibrarianDao{
 	
 	@PersistenceUnit
 	private EntityManagerFactory entityManagerFactory;
-	EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 	//addBook
 	@Override
 	public BookInventory addBook(BookInventory bookInventory) {
 		try {
+			EntityManager entityManager = entityManagerFactory.createEntityManager();
 			EntityTransaction entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			entityManager.persist(bookInventory);
@@ -38,6 +38,7 @@ public class LibrarianDaoImpl implements LibrarianDao{
 	//
 	@Override
 	public BookInventory deleteBook(String bookId) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 			EntityTransaction transaction=entityManager.getTransaction();
 			BookInventory book=entityManager.find(BookInventory.class,bookId);
 			if(book.getBookId().equalsIgnoreCase(bookId)) {
@@ -53,6 +54,7 @@ public class LibrarianDaoImpl implements LibrarianDao{
 	@Override
 	public Users addUser(Users users) {
 	try {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		entityManager.persist(users);
