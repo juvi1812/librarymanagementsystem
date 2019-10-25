@@ -23,6 +23,9 @@ public class BookTransaction {
 	
 	@Column
 	private int fine;
+	
+	@Column
+	private Date returnDate;
 
 	public String getTransactionId() {
 		return transactionId;
